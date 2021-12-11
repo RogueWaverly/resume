@@ -1,0 +1,198 @@
+% inspiration from: https://github.com/junhaodong/resume
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{array}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{fontawesome}
+\usepackage[hidelinks,unicode]{hyperref}
+\usepackage[sfdefault, light]{roboto}
+\usepackage{xcolor}
+
+% margins
+\geometry{left=0.51in, right=0.51in, top=0.67in, bottom=0.67in}
+% header and footer
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhf{}
+
+% colors
+\definecolor{black}{HTML}{000000}
+\definecolor{darkgray}{HTML}{333333}
+\definecolor{accent}{HTML}{BC1655}
+
+% tabular columns
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash}m{#1}}
+
+%-------------------------
+% Custom commands
+%-------------------------
+
+\newcommand{\boldsc}[1]{\textcolor{black}{\textbf{\textsc{#1}}}}
+\newcommand{\resumeSpacing}{5pt}
+
+% INFO
+\newcommand{\name}{Waverly Roeger}
+\newcommand{\position}{Backend Software Engineer}
+\newcommand{\addr}{\textcolor{black}{\faMapMarker}\space{New York City area (Stamford, CT)}}
+\newcommand{\phone}{\textcolor{black}{\faPhone}\space{(806) 239-6854}}
+\newcommand{\email}{\textcolor{black}{\faEnvelopeO}\space\href{mailto:waverlyroeger@gmail.com}{waverlyroeger@gmail.com}}
+\newcommand{\linkedin}{\textcolor{black}{\faLinkedin}\space\href{https://www.linkedin.com/in/wroeger}{wroeger}}
+\newcommand{\github}{\textcolor{black}{\faGithub}\space\href{https://github.com/RogueWaverly}{RogueWaverly}}
+
+% SECTION FORMATTING
+\newcommand{\resumeSection}[1]{
+  \begin{flushleft}
+  {\LARGE
+  \textcolor{accent}{\textbf{#1}}
+  \hrulefill}
+  \end{flushleft}
+}
+
+\newcommand{\resumeSubsection}[5]{
+  \begin{center}
+	\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+	\large\textcolor{black}{\textbf{#1}}\normalsize\textcolor{black}{\quad\href{#4}{\textsc{#3}}\textit{#5}} & \small\textcolor{accent}{#2} \\
+	\end{tabular*}
+  \vspace{-\resumeSpacing}
+  \vspace{-\resumeSpacing}
+  \end{center}
+}
+
+\newcommand{\resumeSubsectionTwo}[5]{
+  \begin{center}
+	\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+	\large\textcolor{black}{\textbf{#1}} & \small\textcolor{accent}{#2} \\
+  \textcolor{black}{\href{#4}{\textsc{#3}}\textit{#5}} & \\
+	\end{tabular*}
+  \vspace{-\resumeSpacing}
+  \end{center}
+}
+
+\newenvironment{resumeItemize}{
+  \addtolength{\leftmargini}{-\resumeSpacing}
+  \begin{minipage}{0.99\textwidth}
+  \begin{itemize}
+  \small
+}{
+  \end{itemize}
+  \vspace{0pt}
+  \end{minipage}
+  \normalsize
+  \ \\
+}
+
+\newcommand{\resumeItem}[1]
+{
+  \raggedright
+  \item{#1}
+  \vspace{-\resumeSpacing}
+}
+
+%-------------------------
+%%%%%%% RESUME %%%%%%%%%%%
+%-------------------------
+
+\begin{document}
+  \color{darkgray}
+  %-------------------------
+  %%%%%%% HEADER %%%%%%%%%%%
+  %-------------------------
+  %------ NAME -------------
+	\begin{center}\Huge{\color{black}\textbf{\name}}\end{center}
+  %------ INFO -------------
+  \begin{center}
+    \small
+    {\setlength{\extrarowheight}{3pt}
+    \begin{tabular*}{\textwidth}{L{0.25\textwidth}C{0.43\textwidth}R{0.25\textwidth}}
+      \email & {\normalsize{\boldsc{\textcolor{accent}{\position}}}} & \linkedin \\
+      \phone & \addr & \github \\
+    \end{tabular*}}
+  \end{center}
+  %------ SKILLS -----------
+  \begin{center}
+    \boldsc{Languages}{\small\space{Python, C++, Java, C, PostgreSQL}\quad}
+    \boldsc{Tools}{\small\space{Django, Git, Linux, AWS Elastic Beanstalk}}
+  \end{center}
+  %-------------------------
+  %%%%%%% EXPERIENCE %%%%%%%
+  %-------------------------
+  \resumeSection{Experience}
+  %------ STARTUP -------------
+  \resumeSubsection
+  {Lead Backend Engineer}{June 2019 --- March 2021}
+  {Seed-stage social impact startup}{}{}
+  \begin{resumeItemize}
+    \resumeItem
+    {Held primary ownership of 5 major project backends, designing and developing RESTful APIs, designing and modeling databases, collaborating with frontend engineers, and anticipating design needs beyond initial requirements}
+    \resumeItem
+    {Designed and developed the multi-client backend of the checkout flow SDK from scratch to launch, which became the startup's primary product, multiplying transactions handled per day and expanding reach from NYC to international}
+    \resumeItem
+    {Improved code maintainability and durability by developing code standards and best practices including thorough internal and external documentation, reusable code, comprehensive test suites, and up-to-date security schemes}
+    \resumeItem
+    {Implemented unification of the original app and SDK systems by redesigning a cohesive database and migrating data and API functionality in order to merge customer profiles and enable aggregate impact reports}
+    \resumeItem
+    {As partnerships increased, automated monthly invoicing and analytics reporting to reduce manual overhead}
+    \resumeItem
+    {Enabled the marketing team to increase customer engagement by implementing automated transactional emails and custom user segmentation through SendGrid, Klaviyo, and Mailchimp marketing platform integrations}
+    \resumeItem
+    {Researched machine learning algorithm approaches to build a personalized recommendation system}
+    \resumeItem
+    {As early core team member, actively contributed to building the startup's initial structure and culture, including interviewing and onboarding new engineers}
+  \end{resumeItemize}
+  %------ LLNL -------------
+  \resumeSubsection
+  {Software Developer}{July 2017 --- May 2019}
+  {Lawrence Livermore National Laboratory}{https://www.llnl.gov/}{}
+  \begin{resumeItemize}
+    \resumeItem
+    {Transformed legacy static web pages of the Virtual Test Library by designing a database for assorted experiment data and recreating web pages using Django, identifying and resolving metadata inconsistencies using regular expressions}
+    \resumeItem
+    {Researched approaches to improving a spiking neuron algorithm used to solve a quadratic unconstrained binary optimization graph theory problem run on IBM's TrueNorth neurosynaptic hardware, and presented results}
+  \end{resumeItemize}
+  %------ GARMIN -----------
+	\resumeSubsection
+  {Software Engineer Intern}{May 2016 --- August 2016}
+  {Garmin International}{https://www.garmin.com/}{}
+	\begin{resumeItemize}
+    \resumeItem
+    {Developed full-stack software, including internal firmware update functionality, for the Mac application VIRB Edit supporting VIRB series action cameras, learning Objective-C on the job}
+	\end{resumeItemize}
+  %-------------------------
+  %%%%%%% LEADERSHIP %%%%%%%
+  %-------------------------
+  \resumeSection{Leadership}
+  %------ GIRLS WHO CODE ---
+  \resumeSubsection
+  {Facilitator}{September 2017 --- February 2019}
+  {Girls Who Code}{https://girlswhocode.com/}{, Christensen Middle School}
+  \begin{resumeItemize}
+    \resumeItem
+    {Led a middle school club of 30 students through a project-based curriculum each week, teaching computer science fundamentals and fostering community}
+  \end{resumeItemize}
+  %------ WICS -------------
+  \resumeSubsection
+  {President}{May 2015 --- May 2017}
+  {Women in Computer Science}{http://wics-asu.org/}{, Arizona State University}
+  \begin{resumeItemize}
+    \resumeItem
+    {Increased active membership 2x, instituted lasting improvements to organization structure, and organized 50+ professional development, outreach, and social events, including a programming competition with 100+ participants}
+  \end{resumeItemize}
+  %-------------------------
+  %%%%%%% EDUCATION %%%%%%%%
+  %-------------------------
+  \resumeSection{Education}
+  %------ BARRETT ----------
+  \resumeSubsectionTwo
+  {Bachelor of Science in Computer Science}{May 2017}
+  {Barrett, the Honors College at Arizona State University}{https://barretthonors.asu.edu/}{}
+  \begin{resumeItemize}
+	  \resumeItem
+    {\boldsc{Honors}\space\textit{summa cum laude} (3.83 GPA), New American University Scholar (National Merit finalist)}
+	  \resumeItem
+    {\boldsc{Thesis} Mazes of Waverly Place: Interactive Algorithmic Art Generator \href{https://roguewaverly.github.io/Mazes-Of-Waverly-Place/}{(\textit{roguewaverly.github.io/Mazes-Of-Waverly-Place})}}
+  \end{resumeItemize}
+  \vspace{-\resumeSpacing}
+\end{document}
